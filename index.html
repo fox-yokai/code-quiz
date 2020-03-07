@@ -8,6 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
     <title>Quick Code Quiz</title>
   </head>
   <body>
@@ -18,23 +21,24 @@
     </nav>
 
     <!-- instructions -->
-    <div class="container" id="instructions">
+    <div class="container" id="start">
         <div class="row">
             <div class="col-lg-6 col-sm-12 mx-auto">
                 <p class="h2 text-center">Quick Code Quiz!</p>
                 <p>Try to answer the follow questions before time runs out. But choose carefully because each incorrect answer will subtract time!</p>
                 <div class="text-center">
-                <button type="button" class="btn btn-info" id="strBtn">Start</button>
+                <button type="button" class="btn btn-info" id="strBtn" onclick="quizQuestions()">Start</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- quiz questions -->
-    <div class="container quizwindow" >
-        <div class="row quizwindow" id="quiz">
-            <div class="col-lg-6 col-sm-12 mx-auto quizwindow">
-                <p class="h2 text-center quizwindow">Question</p>
+    <div class="container" id="quizWindow">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12 mx-auto">
+                <p class="h2 text-center">Question</p>
+                <ol></ol>
 
         </div>
     </div>
