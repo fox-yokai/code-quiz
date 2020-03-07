@@ -28,8 +28,21 @@ document.getElementById("timer").innerHTML = timeLeft;
 function quizQuestions() {
     document.getElementById("start").style.display = "none";
     document.getElementById("quizWindow").style.display = "block";
+    quizTimeLeft()
 }
 
 function quizTimeLeft() {
+    var timerInerval = setInterval(function () {
+        timeLeft--;
+        document.getElementById("timer").innerHTML = timeLeft;
 
+console.log(timeLeft)
+
+        if(timeLeft === 0) {
+            clearInterval(timerInerval);
+        }
+    
+
+
+    }, 1000);
 }
