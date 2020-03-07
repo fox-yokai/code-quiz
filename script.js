@@ -5,14 +5,14 @@ var quizArr = {
         answerTwo: "This is the second answer (1).",
         answerThree: "This is the third answer (1).",
         answerFour: "This is the fourth answer (1).",
-    }
+    },
     questionTwo: {
         question: "This is a sample questions 1?",
         answerOne: "This is the first answer (2).",
         answerTwo: "This is the second answer (2).",
         answerThree: "This is the third answer (2).",
         answerFour: "This is the fourth answer (2).",
-    }
+    },
     questionThree: {
         question: "This is a sample questions 1?",
         answerOne: "This is the first answer (3).",
@@ -23,6 +23,7 @@ var quizArr = {
 };
 
 var timeLeft = 99;
+document.getElementById("timer").innerHTML = timeLeft;
 
 function quizQuestions() {
     document.getElementById("start").style.display = "none";
