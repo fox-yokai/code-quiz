@@ -22,11 +22,13 @@ var quizArr = {
     }
 };
 
+var timeLeft = 99;
+
 function quizQuestions() {
     document.getElementById("start").style.display = "none";
     document.getElementById("quizWindow").style.display = "block";
 }
 
 function quizTimeLeft() {
-    
+
 }
