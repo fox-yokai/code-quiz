@@ -1,3 +1,7 @@
 #quizWindow {
     display: none;
   }
+
+#gameOverWindow {
+    display: none;
+}

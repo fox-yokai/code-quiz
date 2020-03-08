@@ -22,7 +22,7 @@ var quizArr = {
     }
 };
 
-var timeLeft = 99;
+var timeLeft = 10;
 document.getElementById("timer").innerHTML = timeLeft;
 
 function quizQuestions() {
@@ -36,13 +36,14 @@ function quizTimeLeft() {
         timeLeft--;
         document.getElementById("timer").innerHTML = timeLeft;
 
-console.log(timeLeft)
-
         if(timeLeft === 0) {
             clearInterval(timerInerval);
+            gameOver();
         }
-    
-
-
     }, 1000);
+}
+
+function gameOver() {
+    document.getElementById("quizWindow").style.display = "none";
+    document.getElementById("gameOverWindow").style.display = "block";
 }
