@@ -52,14 +52,15 @@ qAnswers.addEventListener("click", function(event){
         console.log(score)
         quizStart();
     } else {
+        score = score - 5;
         i++;
-        guessWrong();
+        quizStart();
     }
 })
 
-function guessWrong() {
-    console.log("incorrect")
-}
+// function guessWrong() {
+//     console.log("incorrect")
+// }
 
 
 function quizTimeLeft() {
@@ -67,7 +68,7 @@ function quizTimeLeft() {
         timeLeft--;
         document.getElementById("timer").innerHTML = timeLeft;
 
-        if(timeLeft === 0) {
+        if(timeLeft <= 0) {
             clearInterval(timerInerval);
             gameOver();
         }
@@ -75,7 +76,7 @@ function quizTimeLeft() {
 }
 
 function gameOver() {
-    clearInterval(timeLeft);
+    timeLeft = 0;
     document.getElementById("quizWindow").style.display = "none";
     document.getElementById("gameOverWindow").style.display = "block";
     document.getElementById("totalScore").innerHTML = score;
