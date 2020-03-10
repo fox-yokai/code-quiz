@@ -1,12 +1,23 @@
 var quizArr = [
-    ["What is a question one?", "This is sample answer 1A", "This is sample answer 1B", "This is sample answer 1C", "This is sample answer 1D", "This is sample answer 1A"],
-    ["What is a question two?", "This is sample answer 2A", "This is sample answer 2B", "This is sample answer 2C", "This is sample answer 2D", "This is sample answer 2C"],
-    ["What is a question three?", "This is sample answer 3A", "This is sample answer 3B", "This is sample answer 3C", "This is sample answer 3D", "This is sample answer 3D"],
+    {
+     question: "This is the first sample question?",
+     choices: ["This is the correct answer for 1", "This is the wrong answer for 1", "This is the wrong answer for 1", "This is the wrong answer for 1"],
+     correctAnswer: "This is the correct answer for 1", 
+    },
+    {
+        question: "This is the second sample question?",
+        choices: ["This is the wrong answer for 1", "This is the correct answer for 2", "This is the wrong answer for 1", "This is the wrong answer for 1"],
+        correctAnswer: "This is the correct answer for 2", 
+    },
+    {
+        question: "This is the third sample question?",
+        choices: ["This is the wrong answer for 1", "This is the wrong answer for 1","This is the correct answer for 3", "This is the wrong answer for 1"],
+        correctAnswer: "This is the correct answer for 3", 
+       }
 ];
 
 var timeLeft = 99;
 var i = 0;
-var qLoop = 0;
 var score = 0;
 document.getElementById("timer").innerHTML = timeLeft;
 
@@ -20,32 +31,31 @@ function quizQuestions() {
 }
 
 function quizStart() {
-    document.getElementById("winQuestion").textContent = quizArr[i][0];
-    showAnswers();
-}
-
-function showAnswers() {
-    for (var q = 1; q <= 4; q++) {
-        var qChoice = quizArr[i][q];
-        var li = document.createElement("li");
-        li.textContent = qChoice;
-        qAnswers.appendChild(li);  
-        }
+    if (i > 2) {
+        gameOver();
+    } else {
+        document.getElementById("qChoices").textContent = "";
+        document.getElementById("winQuestion").textContent = quizArr[i].question;
+        for (var q = 0; q <= 3; q++) {
+            var qChoice = quizArr[i].choices[q];
+            var li = document.createElement("li");
+            li.textContent = qChoice;
+            qAnswers.appendChild(li);  
+            }
+    }
 }
 
 qAnswers.addEventListener("click", function(event){
-    if (event.target.innerHTML === quizArr[i][5]) {
-        guessCorrect();
+    if (event.target.innerHTML === quizArr[i].correctAnswer) {
+        score = score + 5;
+        i++;
+        console.log(score)
+        quizStart();
     } else {
+        i++;
         guessWrong();
     }
 })
-
-function guessCorrect() {
-    score = score + 5;
-    qLoop++;
-    quizStart();
-}
 
 function guessWrong() {
     console.log("incorrect")
@@ -65,6 +75,8 @@ function quizTimeLeft() {
 }
 
 function gameOver() {
+    clearInterval(timeLeft);
     document.getElementById("quizWindow").style.display = "none";
     document.getElementById("gameOverWindow").style.display = "block";
+    document.getElementById("totalScore").innerHTML = score;
 }
