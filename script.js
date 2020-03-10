@@ -22,6 +22,7 @@ var score = 0;
 document.getElementById("timer").innerHTML = timeLeft;
 
 var qAnswers = document.getElementById("qChoices");
+var submitInitials = document.getElementById("submitInitials");
 
 function quizQuestions() {
     document.getElementById("start").style.display = "none";
@@ -49,7 +50,6 @@ qAnswers.addEventListener("click", function(event){
     if (event.target.innerHTML === quizArr[i].correctAnswer) {
         score = score + 5;
         i++;
-        console.log(score)
         quizStart();
     } else {
         score = score - 5;
@@ -57,11 +57,6 @@ qAnswers.addEventListener("click", function(event){
         quizStart();
     }
 })
-
-// function guessWrong() {
-//     console.log("incorrect")
-// }
-
 
 function quizTimeLeft() {
     var timerInerval = setInterval(function () {
@@ -76,8 +71,17 @@ function quizTimeLeft() {
 }
 
 function gameOver() {
+    // total hack to stop the timer
     timeLeft = 0;
     document.getElementById("quizWindow").style.display = "none";
     document.getElementById("gameOverWindow").style.display = "block";
     document.getElementById("totalScore").innerHTML = score;
 }
+
+submitInitials.addEventListener("click", function(event) {
+    var initials = document.getElementById("initials").value;
+    localStorage.setItem("game-score", initials + " " + score);
+    document.location.href = "https://fox-yokai.github.io/code-quiz/scores.html";
+} )
+
+
