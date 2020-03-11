@@ -10,15 +10,17 @@
 
     <title>High Scores | Quick Code Quiz</title>
   </head>
-  <body>
-    <div class="container">
+  <body onload="displayScores()">
+    <div class="container mt-5">
       <div class="row">
-        <div class="col-6 col-md-4">
-          <p class="" id="high-scores">High Scores</p>
-          <ol>
-
-            
+        <div class="col-6 col-md-4 mx-auto bg-info">
+          <p class="h2 text-center" >High Scores</p>
+          <ol id="high-scores">
           </ol>
+          <div class="container">
+            <button class="btn btn-success" onclick="window.location.href = 'https://fox-yokai.github.io/code-quiz/';">Start Over</button>
+            <button class="btn btn-warning" id="reset-scores">Reset High Scores</button>
+          </div>
         </div>
       </div>
     </div>
