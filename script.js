@@ -79,6 +79,7 @@ qAnswers.addEventListener("click", function(event){
         quizStart();
     } else {
         score = score - 5;
+        timeLeft = timeLeft -15;
         i++;
         quizStart();
     }
