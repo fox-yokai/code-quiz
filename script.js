@@ -122,8 +122,6 @@ function displayScores() {
     highScore = JSON.parse(localStorage.getItem("game-score"));
     for (var i = 0; i < highScore.length; i++) {
         var li2 = document.createElement("li"); 
-
-        console.log(highScore[i])
         li2.textContent = highScore[i];
         document.getElementById("high-scores").appendChild(li2);
     }
@@ -131,7 +129,10 @@ function displayScores() {
 
 }
 
+// button doesn't remove scores
 resetScores.addEventListener("click", function(event) {
+    console.log("I got clicked")
     localStorage.removeItem("game-score");
     document.getElementById("high-scores").textContent = "";
+
 })
